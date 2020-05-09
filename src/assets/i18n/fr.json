@@ -1,0 +1,29 @@
+{
+    "general": {
+        "francesLabel": "francais",
+        "spanishLabel": "Espagnol"
+    },
+    "intro": {
+        "title": "Profil",
+        "descripcion": "J'ai de l'expérience dans l'administration de sites Web et d'applications bureautiques, mais aussi dans les langages de C Sharp et de VB, MVC 4, Transact-SQL, PLSQL, Entity Framework (ORM), .Net, Visual Studio 2008-2019 et Langages de balisage HTML5, XAML et XML, Gestion des bases de données SQL Server 2005-2016, développement des projets N-layer, traitement mathématique et connaissance des outils bureautiques (Microsoft office 2007 - 2016)."
+    },
+    "info": {
+        "profession": "Développeur de logiciels",
+        "Location": "Lieu",
+        "phone": "téléphone",
+        "mail": "courrier électronique"
+    },
+    "knowledge": {
+        "title": "Les compétences",
+        "items": [{
+            "item": "C#",
+            "value": 70
+        }, {
+            "item": "SQL#",
+            "value": 70
+        }, {
+            "item": "MVC",
+            "value": 70
+        }]
+    }
+}
