@@ -64,9 +64,14 @@
       "description": "Desarrollador.net senior backend del CRM interno. Desarrollo de microservicios con GRPC. Manejo de Git y Git-Flow. Pasarela de pagos (Braintree, Plaid, Dwolla, Stripe). Participe en el desarrollo, investigación de proveedores de pasarelas de pago. Mejora continua del software."
     },
     {
+      "company": "Mectronics S.A.",
+      "dateRange": "10 DE NOVIEMBRE DE 2020 – 16 DE ABRIL DE 2021",
+      "description": "Encargado del desarrollo del sistema para explotación de flotas. Diseño de gestores de sincronización"
+    },
+    {
       "company": "Independiente",
       "dateRange": "8 DE AGOSTO DE 2018 – 10 DE NOVIEMBRE DE 2021",
-      "description": "Consultor para el desarrollo de soluciones tecnológicas de facturación electrónica en .Net y frontend en Angular."
+      "description": "Consultor para el desarrollo de soluciones tecnológicas de facturación electrónica en .Net Core y frontend en Angular."
     },
     {
       "company": "Gestión Franca S.A.S",
