@@ -10,15 +10,10 @@ import { SkillsComponent } from './profile/skills/skills.component';
 import { ExperienceComponent } from './profile/experience/experience.component';
 import { EducationComponent } from './profile/education/education.component';
 import { ContactComponent } from './profile/contact/contact.component';
+import { CvPageComponent } from './cv-page/cv-page.component';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,20 +24,14 @@ export function createTranslateLoader(http: HttpClient) {
     SkillsComponent,
     ExperienceComponent,
     EducationComponent,
-    ContactComponent
+    ContactComponent,
+    CvPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: createTranslateLoader,
-          deps: [HttpClient]
-        }
-    }),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

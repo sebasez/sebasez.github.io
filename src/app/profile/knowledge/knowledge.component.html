@@ -1,46 +1,19 @@
-<div class="row">
-    <div class="col-12 col-md-3 bg-black text-dark">
+<div *ngIf="cv$ | async as cv" class="row">
+    <div class="col-12 col-md-3 bg-black text-light">
         <div class="container text-right p-3">
-            <p class="d-none d-md-block text-right h4">{{ 'knowledge.title' | translate }}<i class="fas fa-star ml-2"></i></p>
-            <p class="d-md-none text-center h5">{{ 'knowledge.title' | translate }}</p>
+            <p class="d-none d-md-block text-right h4">
+                {{ cv.ui.knowledgeLeftHeading }}<i class="fas fa-star ml-2"></i>
+            </p>
+            <p class="d-md-none text-center h5">{{ cv.ui.knowledgeLeftHeading }}</p>
         </div>
     </div>
     <div class="col-12 col-md-9 bg-light p-3">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-                    <p class="progress-label">
-                        C#
-                    </p>
-                    <div class="progress" id="prog1">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                            <span class="sr-only">20% Complete</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-                    <p class="progress-label">
-                        SQL
-                    </p>
-                    <div class="progress" id="prog1">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                            <span class="sr-only">80% Complete</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-                    <p class="progress-label">
-                        MVC
-                    </p>
-                    <div class="progress" id="prog1">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                            <span class="sr-only">20% Complete</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ng-container *ngFor="let section of cv.knowledge.sections; let idx = index">
+                <hr *ngIf="idx > 0" class="my-3" />
+                <p class="h3 text-muted" [class.mt-4]="idx > 0">{{ section.heading }}</p>
+                <p>{{ section.body }}</p>
+            </ng-container>
         </div>
     </div>
     <hr>

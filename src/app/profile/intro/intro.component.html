@@ -1,21 +1,20 @@
-<div class="row">
-    <div class="col-12 col-md-3 bg-black text-dark p-3">
+<div *ngIf="cv$ | async as cv" class="row">
+    <div class="col-12 col-md-3 bg-black text-light p-3">
         <div class="container">
-            <p class="d-none d-md-block text-right h4">{{ 'intro.title' | translate }}<i class="fas fa-user-alt ml-2"></i></p>
-            <p class="d-md-none text-center h5">{{ 'intro.title' | translate }}</p>
-            <select [(ngModel)]="selectedLanguage" (ngModelChange)="toogleLanguage($event)">
-                <option value="es">
-                    {{ 'general.spanishLabel' | translate }}
-                </option>
-                <option value="fr">
-                    {{ 'general.francesLabel' | translate }}
-                </option>
-            </select>
+            <p class="d-none d-md-block text-right h4">
+                {{ cv.profile.heading }}
+                <i class="fas fa-user-alt ml-2"></i>
+            </p>
+            <p class="d-md-none text-center h5">{{ cv.profile.heading }}</p>
         </div>
     </div>
     <div class="col-12 col-md-9 bg-light p-3">
         <div class="container">
-            <p class="text-justify">{{ 'intro.descripcion' | translate }}</p>
+            <p class="text-justify">
+                <span *ngFor="let paragraph of cv.profile.paragraphs; let idx = index">
+                    {{ paragraph }}<br *ngIf="idx < cv.profile.paragraphs.length - 1">
+                </span>
+            </p>
         </div>
     </div>
 </div>

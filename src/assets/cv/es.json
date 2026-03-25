@@ -1,0 +1,148 @@
+{
+  "profile": {
+    "heading": "Perfil Personal",
+    "paragraphs": [
+      "Con más de diez años de experiencia en desarrollo de aplicaciones, puedo establecer parámetros, diseñar, programar, integrar y mantener componentes o subconjuntos de software. Manejo flexibilidad en enfoques de diversas situaciones a nivel de programación, buscando normalmente la calidad durante el proceso. Especialista en Gerencia Integral de las Telecomunicaciones. Ingeniero de Sistemas de la Universidad de Cundinamarca. TP desde 29/01/2016."
+    ]
+  },
+  "ui": {
+    "experienceLeftHeading": "Experiencia",
+    "educationLeftHeading": "Educación",
+    "knowledgeLeftHeading": "Áreas de especialización",
+    "softSkillsLeftHeading": "Habilidades Blandas",
+    "educationFormalHeading": "Educación Formal",
+    "educationNonFormalHeading": "Educación No Formal"
+  },
+  "info": {
+    "name": "SEBASTIAN CAMILO GÓMEZ VELÁSQUEZ",
+    "role": "DESARROLLADOR DE SOFTWARE",
+    "photo": {
+      "src": "assets/img/perfil.jpg",
+      "alt": "Foto de perfil"
+    },
+    "headlines": [
+      "Especialista en Gerencia Integral de las Telecomunicaciones.",
+      "Ingeniero de Sistemas de la Universidad de Cundinamarca."
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sebasez/",
+        "iconClass": "fab fa-linkedin fa-3x"
+      },
+      {
+        "label": "Sitio web",
+        "url": "https://sebasez.github.io/",
+        "iconClass": "fas fa-globe fa-3x"
+      }
+    ],
+    "locationLabel": "Ubicación",
+    "addressLines": [
+      "Calle 10A # 11-60",
+      "Funza - Cundinamarca"
+    ],
+    "phoneLabel": "Teléfono",
+    "phone": {
+      "display": "+57 3123549932",
+      "href": "tel:+573123549932"
+    },
+    "emailLabel": "Correo electrónico",
+    "email": {
+      "display": "sebasez@outlook.com",
+      "href": "mailto:sebasez@outlook.com?subject=Contacto"
+    }
+  },
+  "experience": [
+    {
+      "company": "F2X SAS",
+      "dateRange": "9 DE MAYO DE 2023 – A LA FECHA",
+      "description": "Participe en el desarrollo e implementación de Facturación electronica para los peajes para el cumplimiento de la resolución. Encargado del análisis y desarrollo de software para el manejo de peajes en Colombia. Proponer soluciones tecnológicas para solucionar problemáticas. Mejora Continua del software."
+    },
+    {
+      "company": "Million And Up Realty SE Florida INC",
+      "dateRange": "16 DE NOVIEMBRE DE 2021 - 17 DE FEBRERO 2023",
+      "description": "Desarrollador.net senior backend del CRM interno. Desarrollo de microservicios con GRPC. Manejo de Git y Git-Flow. Pasarela de pagos (Braintree, Plaid, Dwolla, Stripe). Participe en el desarrollo, investigación de proveedores de pasarelas de pago. Mejora continua del software."
+    },
+    {
+      "company": "Independiente",
+      "dateRange": "8 DE AGOSTO DE 2018 – 10 DE NOVIEMBRE DE 2021",
+      "description": "Consultor para el desarrollo de soluciones tecnológicas de facturación electrónica en .Net y frontend en Angular."
+    },
+    {
+      "company": "Gestión Franca S.A.S",
+      "dateRange": "22 DE FEBRERO DE 2016 – 8 DE AGOSTO DE 2018",
+      "description": "Encargado del análisis del negocio y diseño del software para entregar soluciones informáticas. Sistema de comunicación con SignalR. Gestionar TFS y publicaciones."
+    }
+  ],
+  "education": {
+    "formal": [
+      {
+        "school": "Universidad de Cundinamarca",
+        "title": "Ingeniero de sistemas",
+        "date": "TP desde 29/01/2016"
+      },
+      {
+        "school": "Escuela Militar de Comunicaciones ESCOM",
+        "title": "Gerencia Integral de las Telecomunicaciones",
+        "date": "10 DE NOVIEMBRE DE 2020 – 16 DE ABRIL DE 2021"
+      }
+    ],
+    "nonFormal": [
+      {
+        "org": "LatamTechnologies",
+        "title": "ASP.NET MVC4",
+        "date": ""
+      },
+      {
+        "org": "Microsoft Virtual Academy",
+        "title": "Developing in HTML5 with JavaScript and CSS3 Jump Start",
+        "date": ""
+      },
+      {
+        "org": "F2X SAS",
+        "title": "Facturación electronica para los peajes (resolución) / Desarrollo y análisis de software",
+        "date": "9 DE MAYO DE 2023 – A LA FECHA"
+      },
+      {
+        "org": "LatamTechnologies",
+        "title": "Develop an ASP.NET Core web app that consumes an API",
+        "date": "5 de junio de 2024"
+      }
+    ]
+  },
+  "knowledge": {
+    "sections": [
+      {
+        "heading": "BackEnd",
+        "body": "C# (WCF y RESTFul API), VB, SQL, (ORM) Entity Framework y Dapper. Node JS, Mensajeria con Kafka."
+      },
+      {
+        "heading": "FrontEnd",
+        "body": "TypeScript React, Next JS, JavaScript, Jquery, Angular."
+      },
+      {
+        "heading": "Patrones más aplicados",
+        "body": "MVC, dependency injection, unit of work, Singleton, Repository."
+      },
+      {
+        "heading": "Arquitectura Aplicada",
+        "body": "N capas, Clean Architecture (Microservicios). Hexagonal."
+      },
+      {
+        "heading": "IDE",
+        "body": "Visual Studio 2008-2019 y VS Code."
+      },
+      {
+        "heading": "Base de datos",
+        "body": "SQL Server, MySQL y Oracle."
+      }
+    ]
+  },
+  "softSkillsHeading": "Habilidades",
+  "softSkills": [
+    "Comunicación asertiva y trabajo en equipo.",
+    "Gestion del tiempo.",
+    "Gestion al cambio."
+  ]
+}
+
