@@ -26,6 +26,7 @@ export interface CvContent {
     }>;
     locationLabel: string;
     addressLines: string[];
+    showPhone?: boolean | string;
     phoneLabel: string;
     phone: {
       display: string;

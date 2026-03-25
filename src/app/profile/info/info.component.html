@@ -35,7 +35,7 @@
                     <p>{{ cv.info.locationLabel }}</p>
                     <p *ngFor="let line of cv.info.addressLines">{{ line }}</p>
                 </div>
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                <div *ngIf="cv.info.showPhone !== false" class="col-6 col-sm-6 col-md-3 col-lg-3">
                     <p>{{ cv.info.phoneLabel }}</p>
                     <p>
                         <a class="text-secondary" [href]="cv.info.phone.href">{{ cv.info.phone.display }}</a>
