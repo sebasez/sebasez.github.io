@@ -38,7 +38,6 @@
     ],
     "locationLabel": "Ubicación",
     "addressLines": [
-      "Calle 10A # 11-60",
       "Funza - Cundinamarca"
     ],
     "phoneLabel": "Teléfono",
@@ -130,7 +129,7 @@
       },
       {
         "heading": "IDE",
-        "body": "Visual Studio 2008-2019 y VS Code."
+        "body": "Visual Studio 2008-2026 y VS Code."
       },
       {
         "heading": "Base de datos",

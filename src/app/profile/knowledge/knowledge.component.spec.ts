@@ -1,4 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { KnowledgeComponent } from './knowledge.component';
 
@@ -6,12 +7,12 @@ describe('KnowledgeComponent', () => {
   let component: KnowledgeComponent;
   let fixture: ComponentFixture<KnowledgeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ KnowledgeComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [KnowledgeComponent],
+      imports: [HttpClientTestingModule]
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(KnowledgeComponent);

@@ -1,4 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IntroComponent } from './intro.component';
 
@@ -6,12 +7,12 @@ describe('IntroComponent', () => {
   let component: IntroComponent;
   let fixture: ComponentFixture<IntroComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ IntroComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [IntroComponent],
+      imports: [HttpClientTestingModule]
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(IntroComponent);
