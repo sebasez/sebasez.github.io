@@ -1,0 +1,29 @@
+{
+    "general": {
+        "francesLabel": "francais",
+        "spanishLabel": "Español"
+    },
+    "intro": {
+        "title": "Perfil",
+        "descripcion": "Cuento con experiencia en administración de sitios web y aplicaciones de escritorio, además tengo conocimiento en los lenguajes de C Sharp y VB, Patrón MVC 4, Transact-SQL, PLSQL, (ORM) Entity Framework, .Net y DotNet Core, Visual Studio 2008-2019 y lenguaje de marcado HTML5, XAML y XML, administración de Bases de Datos SQL Server 2005-2016 manejando la seguridad requerida en cada proyecto, Desarrollo de proyectos en N capas, procesamiento matemático y conocimiento de herramientas ofimáticas (Microsoft office 2007 - 2016)."
+    },
+    "info": {
+        "profession": "Desarrollador de software",
+        "Location": "Ubicación",
+        "phone": "Teléfono",
+        "mail": "Correo electrónico"
+    },
+    "knowledge": {
+        "title": "Habilidades",
+        "items": [{
+            "item": "C#",
+            "value": 70
+        }, {
+            "item": "SQL#",
+            "value": 70
+        }, {
+            "item": "MVC",
+            "value": 70
+        }]
+    }
+}
