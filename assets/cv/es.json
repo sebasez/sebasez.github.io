@@ -40,7 +40,7 @@
     "addressLines": [
       "Funza - Cundinamarca"
     ],
-    "showPhone": true,
+    "showPhone": false,
     "phoneLabel": "Teléfono",
     "phone": {
       "display": "+57 3123549932",
