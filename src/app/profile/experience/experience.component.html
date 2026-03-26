@@ -1,4 +1,5 @@
-<div *ngIf="cv$ | async as cv" class="row">
+@if (cv$ | async; as cv) {
+<div class="row">
     <div class="col-12 col-md-3 bg-black text-light">
         <div class="container text-right p-3">
             <p class="d-none d-md-block text-right h4">
@@ -10,7 +11,8 @@
     <div class="col-12 col-md-9 bg-light p-3">
         <div class="container">
             <ul class="timeline">
-                <li *ngFor="let job of cv.experience" class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                @for (job of cv.experience; track $index) {
+                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
                     <div class="timeline-arrow"></div>
                     <h2 class="h5 mb-0">{{ job.company }}</h2>
                     <span class="small text-gray">
@@ -18,7 +20,10 @@
                     </span>
                     <p class="text-small mt-2 font-weight-light">{{ job.description }}</p>
                 </li>
+                }
             </ul>
         </div>
         <hr>
     </div>
+</div>
+}

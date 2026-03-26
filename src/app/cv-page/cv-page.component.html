@@ -1,129 +1,156 @@
-<div *ngIf="cvView$ | async as cv" class="cvPage">
+@if (cvView$ | async; as cv) {
+<div class="cvPage">
   <div class="cvDocument">
     <div #cvSheet class="cvSheet">
-    <header class="cvHeader">
-      <div class="cvHeaderInner">
-        <div class="cvAvatarWrap">
-          <img class="cvAvatar" [src]="cv.info.photo.src" [attr.alt]="cv.info.photo.alt || cv.info.name" />
-        </div>
+      <header class="cvHeader">
+        <div class="cvHeaderInner">
+          <div class="cvAvatarWrap">
+            <img class="cvAvatar" [src]="cv.info.photo.src" [attr.alt]="cv.info.photo.alt || cv.info.name" />
+          </div>
 
-        <div class="cvHeaderText">
-          <h1 class="cvName">{{ cv.info.name }}</h1>
-          <p class="cvRole">{{ cv.info.role }}</p>
-          <div class="cvHeaderHighlights">
-            <span class="cvHighlight" *ngFor="let line of cv.info.headlines">{{ line }}</span>
+          <div class="cvHeaderText">
+            <h1 class="cvName">{{ cv.info.name }}</h1>
+            <p class="cvRole">{{ cv.info.role }}</p>
+            <div class="cvHeaderHighlights">
+              @for (line of cv.info.headlines; track $index) {
+              <span class="cvHighlight">{{ line }}</span>
+              }
+            </div>
           </div>
         </div>
-      </div>
-      <button
-        class="cvDownloadButton cvNoPdf"
-        type="button"
-        (click)="downloadPdf(cv.info.name)"
-        [disabled]="isGeneratingPdf"
-      >
-        {{ isGeneratingPdf ? 'Generando PDF...' : 'Descargar PDF' }}
-      </button>
-    </header>
+        <button
+          class="cvDownloadButton cvNoPdf"
+          type="button"
+          (click)="downloadPdf(cv.info.name)"
+          [disabled]="isGeneratingPdf"
+        >
+          {{ isGeneratingPdf ? 'Generando PDF...' : 'Descargar PDF' }}
+        </button>
+      </header>
 
-    <main class="cvGrid">
-      <section class="cvCol cvColLeft">
-        <div class="cvSection">
-          <h2 class="cvSectionTitle">{{ cv.profile.heading }}</h2>
-          <div class="cvSectionBody">
-            <p class="cvParagraph" *ngFor="let p of cv.profile.paragraphs">{{ p }}</p>
+      <main class="cvGrid">
+        <section class="cvCol cvColLeft">
+          <div class="cvSection">
+            <h2 class="cvSectionTitle">{{ cv.profile.heading }}</h2>
+            <div class="cvSectionBody">
+              @for (p of cv.profile.paragraphs; track $index) {
+              <p class="cvParagraph">{{ p }}</p>
+              }
+            </div>
           </div>
-        </div>
 
-        <div class="cvSection">
-          <h2 class="cvSectionTitle">Contacto</h2>
-          <div class="cvSectionBody cvContact">
-            <div class="cvContactRow">
-              <i class="fas fa-map-marker-alt cvIcon"></i>
-              <div>
-                <div *ngFor="let line of cv.info.addressLines">{{ line }}</div>
+          <div class="cvSection">
+            <h2 class="cvSectionTitle">Contacto</h2>
+            <div class="cvSectionBody cvContact">
+              <div class="cvContactRow">
+                <i class="fas fa-map-marker-alt cvIcon"></i>
+                <div>
+                  @for (line of cv.info.addressLines; track $index) {
+                  <div>{{ line }}</div>
+                  }
+                </div>
               </div>
-            </div>
-            <div class="cvContactRow">
-              <i class="fas fa-envelope cvIcon"></i>
-              <a [href]="cv.info.email.href">{{ cv.info.email.display }}</a>
-            </div>
-            <div class="cvContactRow" *ngIf="cv.info.showPhone !== false">
-              <i class="fas fa-phone cvIcon"></i>
-              <a [href]="cv.info.phone.href">{{ cv.info.phone.display }}</a>
-            </div>
-            <div class="cvContactRow" *ngFor="let link of cv.info.links">
-              <i [class]="link.iconClass + ' cvIcon'"></i>
-              <a [href]="link.url" target="_blank" rel="noopener noreferrer">{{ link.url }}</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="cvSection">
-          <h2 class="cvSectionTitle">Educación Formal</h2>
-          <div class="cvSectionBody">
-            <div class="cvEduItem" *ngFor="let e of cv.education.formal">
-              <div class="cvBullet"></div>
-              <div>
-                <div class="cvEduTitle">{{ e.title }}</div>
-                <div class="cvEduMeta">{{ e.school }}</div>
-                <div class="cvEduMeta" *ngIf="e.date">{{ e.date }}</div>
+              <div class="cvContactRow">
+                <i class="fas fa-envelope cvIcon"></i>
+                <a [href]="cv.info.email.href">{{ cv.info.email.display }}</a>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cvSection">
-          <h2 class="cvSectionTitle">Educación No Formal</h2>
-          <div class="cvSectionBody">
-            <div class="cvEduItem" *ngFor="let e of cv.education.nonFormal">
-              <div class="cvBullet"></div>
-              <div>
-                <div class="cvEduTitle">{{ e.title }}</div>
-                <div class="cvEduMeta">{{ e.org }}</div>
-                <div class="cvEduMeta" *ngIf="e.date">{{ e.date }}</div>
+              @if (cv.info.showPhone !== false) {
+              <div class="cvContactRow">
+                <i class="fas fa-phone cvIcon"></i>
+                <a [href]="cv.info.phone.href">{{ cv.info.phone.display }}</a>
               </div>
+              }
+              @for (link of cv.info.links; track $index) {
+              <div class="cvContactRow">
+                <i [class]="link.iconClass + ' cvIcon'"></i>
+                <a [href]="link.url" target="_blank" rel="noopener noreferrer">{{ link.url }}</a>
+              </div>
+              }
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="cvCol cvColRight">
-        <div class="cvSection">
-          <h2 class="cvSectionTitle">{{ cv.ui.knowledgeLeftHeading }}</h2>
-          <div class="cvSectionBody">
-            <ul class="cvList">
-              <li class="cvListItem" *ngFor="let s of cv.knowledge.sections">
-                <span class="cvListLabel">{{ s.heading }}:</span>
-                <span class="cvListBody">{{ s.body }}</span>
-              </li>
-            </ul>
+          <div class="cvSection">
+            <h2 class="cvSectionTitle">Educación Formal</h2>
+            <div class="cvSectionBody">
+              @for (e of cv.education.formal; track $index) {
+              <div class="cvEduItem">
+                <div class="cvBullet"></div>
+                <div>
+                  <div class="cvEduTitle">{{ e.title }}</div>
+                  <div class="cvEduMeta">{{ e.school }}</div>
+                  @if (e.date) {
+                  <div class="cvEduMeta">{{ e.date }}</div>
+                  }
+                </div>
+              </div>
+              }
+            </div>
           </div>
-        </div>
 
-        <div class="cvSection">
-          <h2 class="cvSectionTitle">{{ cv.ui.softSkillsLeftHeading }}</h2>
-          <div class="cvSectionBody">
-            <ul class="cvList">
-              <li class="cvListItem" *ngFor="let s of cv.softSkills">{{ s }}</li>
-            </ul>
+          <div class="cvSection">
+            <h2 class="cvSectionTitle">Educación No Formal</h2>
+            <div class="cvSectionBody">
+              @for (e of cv.education.nonFormal; track $index) {
+              <div class="cvEduItem">
+                <div class="cvBullet"></div>
+                <div>
+                  <div class="cvEduTitle">{{ e.title }}</div>
+                  <div class="cvEduMeta">{{ e.org }}</div>
+                  @if (e.date) {
+                  <div class="cvEduMeta">{{ e.date }}</div>
+                  }
+                </div>
+              </div>
+              }
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div class="cvSection">
-          <h2 class="cvSectionTitle">Experiencia Laboral</h2>
-          <div class="cvSectionBody">
-            <div class="cvJob" *ngFor="let job of cv.experience">
-              <div class="cvJobCompany">{{ job.company }}</div>
-              <div class="cvJobDates">{{ job.dateRange }}</div>
-              <ul class="cvJobBullets">
-                <li *ngFor="let line of job.descriptionLines">{{ line }}</li>
+        <section class="cvCol cvColRight">
+          <div class="cvSection">
+            <h2 class="cvSectionTitle">{{ cv.ui.knowledgeLeftHeading }}</h2>
+            <div class="cvSectionBody">
+              <ul class="cvList">
+                @for (s of cv.knowledge.sections; track $index) {
+                <li class="cvListItem">
+                  <span class="cvListLabel">{{ s.heading }}:</span>
+                  <span class="cvListBody">{{ s.body }}</span>
+                </li>
+                }
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+
+          <div class="cvSection">
+            <h2 class="cvSectionTitle">{{ cv.ui.softSkillsLeftHeading }}</h2>
+            <div class="cvSectionBody">
+              <ul class="cvList">
+                @for (s of cv.softSkills; track $index) {
+                <li class="cvListItem">{{ s }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          <div class="cvSection">
+            <h2 class="cvSectionTitle">Experiencia Laboral</h2>
+            <div class="cvSectionBody">
+              @for (job of cv.experience; track $index) {
+              <div class="cvJob">
+                <div class="cvJobCompany">{{ job.company }}</div>
+                <div class="cvJobDates">{{ job.dateRange }}</div>
+                <ul class="cvJobBullets">
+                  @for (line of job.descriptionLines; track $index) {
+                  <li>{{ line }}</li>
+                  }
+                </ul>
+              </div>
+              }
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   </div>
 </div>
-
+}

@@ -1,4 +1,5 @@
-<div *ngIf="cv$ | async as cv" class="row">
+@if (cv$ | async; as cv) {
+<div class="row">
     <div class="col-12 col-md-3 bg-black text-light">
         <div class="container text-right p-3">
             <p class="d-none d-md-block text-right h4">
@@ -12,31 +13,36 @@
             <p class="h3 text-muted">{{ cv.ui.educationFormalHeading }}</p>
             <hr>
             <dl class="row">
-                <ng-container *ngFor="let item of cv.education.formal">
-                    <dt class="col-sm-5 text-info">{{ item.school }}</dt>
-                    <dd class="col-sm-7">
-                        <blockquote class="blockquote text-left">
-                            <p class="mb-0">{{ item.title }}</p>
-                            <footer *ngIf="item.date" class="blockquote-footer"><cite>{{ item.date }}</cite></footer>
-                        </blockquote>
-                    </dd>
-                </ng-container>
+                @for (item of cv.education.formal; track $index) {
+                <dt class="col-sm-5 text-info">{{ item.school }}</dt>
+                <dd class="col-sm-7">
+                    <blockquote class="blockquote text-left">
+                        <p class="mb-0">{{ item.title }}</p>
+                        @if (item.date) {
+                        <footer class="blockquote-footer"><cite>{{ item.date }}</cite></footer>
+                        }
+                    </blockquote>
+                </dd>
+                }
             </dl>
 
             <p class="h3 text-muted mt-4">{{ cv.ui.educationNonFormalHeading }}</p>
             <hr>
             <dl class="row">
-                <ng-container *ngFor="let item of cv.education.nonFormal">
-                    <dt class="col-sm-5 text-info">{{ item.org }}</dt>
-                    <dd class="col-sm-7">
-                        <blockquote class="blockquote text-left">
-                            <p class="mb-0">{{ item.title }}</p>
-                            <footer *ngIf="item.date" class="blockquote-footer"><cite>{{ item.date }}</cite></footer>
-                        </blockquote>
-                    </dd>
-                </ng-container>
+                @for (item of cv.education.nonFormal; track $index) {
+                <dt class="col-sm-5 text-info">{{ item.org }}</dt>
+                <dd class="col-sm-7">
+                    <blockquote class="blockquote text-left">
+                        <p class="mb-0">{{ item.title }}</p>
+                        @if (item.date) {
+                        <footer class="blockquote-footer"><cite>{{ item.date }}</cite></footer>
+                        }
+                    </blockquote>
+                </dd>
+                }
             </dl>
         </div>
     </div>
     <hr>
 </div>
+}

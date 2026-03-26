@@ -1,4 +1,5 @@
-<div *ngIf="cv$ | async as cv" class="row">
+@if (cv$ | async; as cv) {
+<div class="row">
     <div class="col-12 col-md-3 bg-black text-light">
         <div class="container text-right p-3">
             <p class="d-none d-md-block text-right h4">
@@ -11,8 +12,11 @@
         <div class="container">
             <hr class="my-3">
             <p class="h3 text-muted">{{ cv.softSkillsHeading }}</p>
-            <p *ngFor="let softSkill of cv.softSkills">{{ softSkill }}</p>
+            @for (softSkill of cv.softSkills; track $index) {
+            <p>{{ softSkill }}</p>
+            }
         </div>
     </div>
     <hr>
 </div>
+}

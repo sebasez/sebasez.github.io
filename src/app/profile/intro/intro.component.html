@@ -1,4 +1,5 @@
-<div *ngIf="cv$ | async as cv" class="row">
+@if (cv$ | async; as cv) {
+<div class="row">
     <div class="col-12 col-md-3 bg-black text-light p-3">
         <div class="container">
             <p class="d-none d-md-block text-right h4">
@@ -11,10 +12,13 @@
     <div class="col-12 col-md-9 bg-light p-3">
         <div class="container">
             <p class="text-justify">
-                <span *ngFor="let paragraph of cv.profile.paragraphs; let idx = index">
-                    {{ paragraph }}<br *ngIf="idx < cv.profile.paragraphs.length - 1">
+                @for (paragraph of cv.profile.paragraphs; track $index; let isLast = $last) {
+                <span>
+                    {{ paragraph }}@if (!isLast) {<br>}
                 </span>
+                }
             </p>
         </div>
     </div>
 </div>
+}

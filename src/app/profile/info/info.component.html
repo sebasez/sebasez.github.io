@@ -1,4 +1,5 @@
-<div *ngIf="cv$ | async as cv" class="row">
+@if (cv$ | async; as cv) {
+<div class="row">
     <div class="col-12 col-md-3 bg-black text-light">
         <div class="container">
             <img src="./assets/img/perfil.jpg" width="300" height="300" class="img-fluid mx-auto rounded-circle d-block p-2" [attr.alt]="cv.info.name">
@@ -9,23 +10,29 @@
             <h3 class="display-2 h1 text-info d-none d-md-block">{{ cv.info.name }}</h3>
             <h3 class="display-4 text-info d-md-none">{{ cv.info.name }}</h3>
             <h3 class="display-4 text-muted d-none d-md-block">
-                <span *ngFor="let line of cv.info.headlines; let idx = index">
-                    {{ line }}<br *ngIf="idx < cv.info.headlines.length - 1" />
+                @for (line of cv.info.headlines; track $index; let isLast = $last) {
+                <span>
+                    {{ line }}@if (!isLast) {<br />}
                 </span>
+                }
             </h3>
             <h3 class="h3 text-muted d-md-none">
-                <span *ngFor="let line of cv.info.headlines; let idx = index">
-                    {{ line }}<br *ngIf="idx < cv.info.headlines.length - 1" />
+                @for (line of cv.info.headlines; track $index; let isLast = $last) {
+                <span>
+                    {{ line }}@if (!isLast) {<br />}
                 </span>
+                }
             </h3>
         </div>
         <div class="container align-middle text-right">
             <ul class="list-inline">
-                <li *ngFor="let link of cv.info.links" class="list-inline-item">
+                @for (link of cv.info.links; track $index) {
+                <li class="list-inline-item">
                     <a [href]="link.url" target="_blank" class="text-dark" [attr.aria-label]="link.label">
                         <i [class]="link.iconClass"></i>
                     </a>
                 </li>
+                }
             </ul>
             <hr>
         </div>
@@ -33,14 +40,18 @@
             <div class="row">
                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                     <p>{{ cv.info.locationLabel }}</p>
-                    <p *ngFor="let line of cv.info.addressLines">{{ line }}</p>
+                    @for (line of cv.info.addressLines; track $index) {
+                    <p>{{ line }}</p>
+                    }
                 </div>
-                <div *ngIf="cv.info.showPhone !== false" class="col-6 col-sm-6 col-md-3 col-lg-3">
+                @if (cv.info.showPhone !== false) {
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                     <p>{{ cv.info.phoneLabel }}</p>
                     <p>
                         <a class="text-secondary" [href]="cv.info.phone.href">{{ cv.info.phone.display }}</a>
                     </p>
                 </div>
+                }
                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                     <p>{{ cv.info.emailLabel }}</p>
                     <p>
@@ -52,3 +63,4 @@
         </div>
     </div>
 </div>
+}
